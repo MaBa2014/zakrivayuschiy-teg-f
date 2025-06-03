@@ -1,1 +1,30 @@
-/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --color-bg: #fff;
+  --color-text: #000;
+  --color-accent: #ff3a3a;
+  --color-card-border: #000;
+  --color-card-bg: #fff;
+
+  --like-btn-border: #000;
+  --like-btn-bg: #fff;
+  --like-btn-hover-bg: #000;
+  --like-btn-hover-text: #fff;
+  --like-btn-focus-shadow: #ff3a3a;
+  --like-btn-focus-border: #ff3a3a;
+
+  --heart-stroke: #000;
+  --heart-hover-fill: #111;
+  --heart-active-fill: var(--color-accent);
+  --heart-liked-fill: var(--color-accent);
+  --heart-liked-stroke: var(--color-accent);
+  --heart-size: 27px;
+  --heart-size-vertical: 24px;
+  --heart-gap: 17px;
+
+  --spark-color: #ff3a3a;
+
+  --font-main: "Inter", Arial, sans-serif;
+  --font-accent: "PressStart2P", "Courier New", monospace;
+  --card-width: 696px;
+  --card-height: 959px;
+}
