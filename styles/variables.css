@@ -12,19 +12,19 @@
   --like-btn-focus-shadow: #ff3a3a;
   --like-btn-focus-border: #ff3a3a;
 
-  --heart-stroke: #000;
-  --heart-hover-fill: #111;
-  --heart-active-fill: var(--color-accent);
-  --heart-liked-fill: var(--color-accent);
-  --heart-liked-stroke: var(--color-accent);
-  --heart-size: 27px;
-  --heart-size-vertical: 24px;
-  --heart-gap: 17px;
+  --contour-color: #000;
+  --main-body-hover: #000;
+  --core-hover: #000;
+  --main-body-active: #ff3a3a;
+  --core-active: #ff3a3a;
+  --main-body-liked: #ff3a3a;
+  --core-liked: #ff3a3a;
 
-  --spark-color: #ff3a3a;
+  --heart-size: 39px;
+  --heart-size-vertical: 36px;
+  --heart-gap: 16px;
 
-  --font-main: "Inter", Arial, sans-serif;
-  --font-accent: "PressStart2P", "Courier New", monospace;
+  --font-main: 'Inter', Arial, sans-serif;
+  --font-accent: 'PressStart2P', 'Courier New', monospace;
   --card-width: 696px;
-  --card-height: 959px;
 }

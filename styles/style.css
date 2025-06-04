@@ -1,19 +1,9 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body.page {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-main);
   margin: 0;
   padding: 0;
-  width: 100vw;
-  min-height: 100vh;
 }
 
 .header {
@@ -25,13 +15,11 @@ body.page {
   align-items: flex-start;
   background: none;
 }
-
 .header__logo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .header__logo-html {
   font-family: var(--font-accent);
   font-size: 54px;
@@ -40,30 +28,32 @@ body.page {
   color: var(--color-text);
   line-height: 1;
   margin-bottom: 18px;
+  margin-top: 0;
+  text-align: center;
   user-select: none;
 }
-
 .header__logo-caption {
   font-family: var(--font-accent);
   font-size: 22px;
   color: var(--color-text);
   text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
   letter-spacing: 0.04em;
+  margin: 0;
   user-select: none;
 }
 
 .card {
   width: var(--card-width);
-  height: var(--card-height);
   border: 2px solid var(--color-card-border);
+  border-radius: 0;
   background: var(--color-card-bg);
   margin: 32px auto;
+  box-sizing: border-box;
   font-family: var(--font-main);
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  overflow: hidden;
 }
-
 .card__label {
   width: 100%;
   background: var(--color-card-bg);
@@ -71,140 +61,179 @@ body.page {
   font-family: var(--font-main);
   font-size: 18px;
   font-weight: 700;
-  padding: 8px 8px 7px 8px;
+  padding: 6px 8px 5px 8px;
   border-bottom: 2px solid var(--color-card-border);
+  text-align: left;
   letter-spacing: 0.01em;
   line-height: 1.1;
+  box-sizing: border-box;
 }
-
 .card__image-wrapper {
   width: 100%;
-  height: 513px;
-  position: relative;
-  background: #111;
+  min-height: 696px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
+  background: #111;
+  position: relative;
 }
 
 .card__image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+  object-position: right;
 }
-
 .card__watermark {
   position: absolute;
-  top: 21px;
-  right: 24px;
+  top: 8px;
+  right: 18px;
   font-family: var(--font-accent);
   font-size: 18px;
-  color: #fff;
-  opacity: 0.6;
-  text-shadow: 1px 1px 2px #222, 0 1px 2px #000;
+  color: rgba(0, 0, 0, 0.14);
   pointer-events: none;
-  z-index: 2;
+  user-select: none;
+  letter-spacing: 0.02em;
 }
-
 .card__body {
-  flex: 1 1 auto;
-  padding: 32px 28px 22px 28px;
+  padding: 22px 30px 16px 30px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
-
 .card__text {
   font-family: var(--font-main);
-  font-variation-settings: "wght" 400;
   font-size: 18px;
-  line-height: 1.33;
+  line-height: 1.25;
+  color: var(--color-text);
   margin-bottom: 16px;
 }
-
 .card__text:last-of-type {
   margin-bottom: 24px;
 }
-
 .card__actions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: var(--heart-gap);
-  margin-top: 18px;
+  margin-top: 12px;
 }
 
 .card__icon-button {
   background: none;
   border: none;
   padding: 0;
-  margin: 0;
+  margin-right: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  min-width: var(--heart-size);
-  min-height: var(--heart-size-vertical);
+  transition: outline 0.2s;
   outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--like-btn-focus-border);
+  outline-offset: 2px;
 }
 
 .like-icon {
   width: var(--heart-size);
   height: var(--heart-size-vertical);
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
 }
 
 .card__like-button {
-  min-width: 125px;
-  height: 40px;
-  font-family: var(--font-accent);
-  letter-spacing: 0.03em;
-  border: 2px solid var(--like-btn-border);
   background: var(--like-btn-bg);
+  border: 2px solid var(--like-btn-border);
   color: var(--color-text);
-  padding: 0 16px;
-  cursor: pointer;
-  transition: background 0.25s, color 0.25s, border 0.25s;
+  font-family: var(--font-accent);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: var(--heart-gap);
+  transition: box-shadow 0.3s, border-color 0.3s, background 0.5s, color 0.5s;
+  cursor: pointer;
+  min-width: 118px;
+  min-height: 31px;
   outline: none;
+  border-radius: 0;
 }
-
 .card__like-button:focus {
+  outline: none;
   box-shadow: 2px 2px 0 var(--like-btn-focus-shadow);
   background: var(--like-btn-bg);
 }
-
 .card__like-button:focus-visible {
   border: 2px solid var(--like-btn-focus-border);
   background: var(--like-btn-bg);
 }
-
 .card__like-button:hover {
   background: var(--like-btn-hover-bg);
   color: var(--like-btn-hover-text);
+  transition: background 0.5s, color 0.5s;
 }
-
-.card__like-button:hover .button__text {
-  color: var(--like-btn-hover-text);
-}
-
 .button__text {
   font-family: var(--font-accent);
   font-size: 14px;
   letter-spacing: 0.02em;
-  user-select: none;
 }
 
-@media (max-width: 900px) {
-  .card {
-    width: 100vw;
-    min-width: 320px;
-    max-width: 100vw;
-    height: auto;
-  }
-  .card__image-wrapper {
-    height: auto;
-  }
+.like-icon .contour {
+  transition: fill 0.3s linear;
+  fill: var(--contour-color);
+}
+
+.like-icon .core {
+  transition: fill 0.3s linear;
+  fill: rgba(0, 0, 0, 0);
+}
+
+.like-icon .main-body {
+  transition: fill 0.2s linear;
+  fill: rgba(0, 0, 0, 0);
+}
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
+.card__icon-button:hover .like-icon .core {
+  transition: fill 0.1s linear;
+  fill: var(--main-body-hover);
+}
+
+.card__icon-button:hover .like-icon .main-body,
+.card__icon-button:hover .like-icon .contour {
+  transition: fill 0.3s linear;
+  fill: var(--main-body-hover);
+}
+
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .core,
+.like-icon.is-liked .contour,
+.like-icon.is-liked .sparks {
+  fill: var(--main-body-liked);
+}
+
+.card__icon-button:active .like-icon .contour {
+  fill: var(--main-body-hover);
+}
+
+.card__icon-button:active .like-icon .core {
+  transition: fill 0.2s linear;
+  fill: var(--main-body-liked);
+}
+.card__icon-button:active .like-icon .main-body {
+  transition: fill 0.3s linear;
+  fill: var(--main-body-liked);
+}
+
+/* Сердце (heart) — анимация сразу */
+.is-liked .heart {
+  animation: heart 0.3s ease-in 0s 1;
+  transform-origin: center;
+}
+
+/* Спарки — анимация стартует через 0.3s */
+.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s 1;
+  transform-origin: center;
 }

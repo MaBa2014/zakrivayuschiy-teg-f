@@ -1,28 +1,24 @@
-.like-icon svg path {
-  transition: fill 0.2s;
-}
-
-.card__icon-button:hover .like-icon svg path,
-.card__icon-button:focus .like-icon svg path {
-  fill: #111;
-}
-
-.like-icon.is-liked svg path {
-  fill: #ff3a3a;
-}
-
-.like-icon.is-liked svg {
-  animation: pixel-heart-pop 0.24s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes pixel-heart-pop {
+@keyframes heart {
   0% {
     transform: scale(1);
   }
-  55% {
-    transform: scale(1.18);
+  50% {
+    transform: scale(1.5);
   }
   100% {
     transform: scale(1);
   }
 }
+
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
