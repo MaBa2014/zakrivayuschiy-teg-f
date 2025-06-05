@@ -1,4 +1,6 @@
 :root {
+  --section-width: clamp(320px, 85vw, 1100px);
+  --card-width: clamp(320px, 80vw, 700px);
   --color-bg: #fff;
   --color-text: #000;
   --color-accent: #ff3a3a;
@@ -24,7 +26,6 @@
   --heart-size-vertical: 36px;
   --heart-gap: 16px;
 
-  --font-main: 'Inter', Arial, sans-serif;
-  --font-accent: 'PressStart2P', 'Courier New', monospace;
-  --card-width: 696px;
+  --font-main: "Inter", Arial, sans-serif;
+  --font-accent: "PressStart2P", "Courier New", monospace;
 }
