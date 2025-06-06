@@ -65,13 +65,9 @@ body.page {
   text-align: left;
   line-height: 1;
   box-sizing: border-box;
+  letter-spacing: 0.1px;
 }
 .card__image-wrapper {
-  width: 100%;
-  min-height: 696px;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: #111;
   position: relative;
 }
 
@@ -84,25 +80,32 @@ body.page {
 }
 .card__watermark {
   position: absolute;
-  top: 8px;
-  right: 18px;
+  top: 25px;
+  right: 25px;
   font-family: var(--font-accent);
-  font-size: 18px;
-  color: rgba(0, 0, 0, 0.14);
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
   pointer-events: none;
   user-select: none;
-  letter-spacing: 0.02em;
+  background: none;
+  opacity: 0.5;
+  text-shadow: var(--watermark-shadow);
 }
+
 .card__body {
-  padding: 25px 25px 50px 25px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 31px 21px 25px 25px;
 }
 .card__text {
   font-family: var(--font-main);
   font-size: 18px;
   color: var(--color-text);
-  margin-bottom: 16px;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
 }
+
 .card__text:last-of-type {
   margin-bottom: 24px;
 }
@@ -110,14 +113,15 @@ body.page {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: var(--heart-gap);
+  margin-top: auto;
+  padding-right: 4px; /* если по макету нужен правый отступ */
 }
 
 .card__icon-button {
   background: none;
   border: none;
   padding: 0;
-  margin-right: 3px;
+  margin-right: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -137,6 +141,8 @@ body.page {
 }
 
 .card__like-button {
+  position: relative;
+  overflow: hidden;
   background: var(--like-btn-bg);
   border: 2px solid var(--like-btn-border);
   color: var(--color-text);
@@ -145,31 +151,51 @@ body.page {
   justify-content: center;
   align-items: center;
   gap: var(--heart-gap);
-  transition: box-shadow 0.3s, border-color 0.3s, background 0.5s, color 0.5s;
-  cursor: pointer;
   min-width: 130px;
-  min-height: 50px;
+  min-height: 40px;
+  cursor: pointer;
   outline: none;
   border-radius: 0;
+  transition: box-shadow 0.3s, border-color 0.3s, color 0.5s;
 }
-.card__like-button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 var(--like-btn-focus-shadow);
-  background: var(--like-btn-bg);
-}
-.card__like-button:focus-visible {
-  border: 2px solid var(--like-btn-focus-border);
-  background: var(--like-btn-bg);
-}
-.card__like-button:hover {
+
+/* Заливка */
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--like-btn-hover-bg);
-  color: var(--like-btn-hover-text);
-  transition: background 0.5s, color 0.5s;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.42, 0, 0.58, 1);
+  z-index: 1;
+  pointer-events: none;
 }
-.button__text {
+
+/* Текст поверх */
+.card__like-button .button__text {
+  position: relative;
+  z-index: 2;
   font-family: var(--font-accent);
   font-size: 14px;
   letter-spacing: 0.02em;
+  color: var(--color-text);
+  transition: color 1s;
+}
+
+/* Эффект заливки при наведении */
+.card__like-button:hover::before,
+.card__like-button:focus-visible::before {
+  transform: scaleX(1);
+}
+
+/* Меняем цвет текста на hover */
+.card__like-button:hover .button__text,
+.card__like-button:focus-visible .button__text {
+  color: var(--like-btn-hover-text);
 }
 
 .big-heart {

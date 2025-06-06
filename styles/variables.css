@@ -28,4 +28,6 @@
 
   --font-main: "Inter", Arial, sans-serif;
   --font-accent: "PressStart2P", "Courier New", monospace;
+
+  --watermark-shadow: 0 1px #fff, 1px 0 #fff, 0 -1px #fff, -1px 0 #fff;
 }
