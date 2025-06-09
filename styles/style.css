@@ -61,6 +61,7 @@ body.page {
   box-sizing: border-box;
   font-family: var(--font-main);
   overflow: hidden;
+  margin-bottom: 52px;
 }
 .card__label {
   background: var(--color-card-bg);
@@ -128,7 +129,7 @@ body.page {
   justify-content: flex-end;
   align-items: center;
   margin-top: auto;
-  padding-right: 4px; /* если по макету нужен правый отступ */
+  padding-right: 4px;
 }
 
 .card__icon-button {
@@ -173,7 +174,6 @@ body.page {
   transition: box-shadow 0.3s, border-color 0.3s, color 0.5s;
 }
 
-/* Заливка */
 .card__like-button::before {
   content: "";
   position: absolute;
@@ -189,7 +189,6 @@ body.page {
   pointer-events: none;
 }
 
-/* Текст поверх */
 .card__like-button .button__text {
   position: relative;
   z-index: 2;
@@ -200,14 +199,216 @@ body.page {
   transition: color 1s;
 }
 
-/* Эффект заливки при наведении */
 .card__like-button:hover::before,
 .card__like-button:focus-visible::before {
   transform: scaleX(1);
 }
 
-/* Меняем цвет текста на hover */
 .card__like-button:hover .button__text,
 .card__like-button:focus-visible .button__text {
   color: var(--like-btn-hover-text);
+}
+
+.button.save-button {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--heart-gap, 10px);
+  background: var(--like-btn-bg, #fff);
+  border: 2px solid var(--like-btn-border, #1a1a1a);
+  color: var(--color-text, #111);
+  font-family: var(--font-accent, "Press Start 2P", monospace);
+  font-size: 14px;
+  min-width: 335px;
+  min-height: 51px;
+  padding: 0 18px;
+  border-radius: 0;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.3s, border-color 0.3s, color 0.5s;
+  box-sizing: border-box;
+}
+
+.button.save-button:focus-visible {
+  outline: none;
+  border-color: var(--like-btn-focus-border, #1a1a1a);
+  box-shadow: 0 0 0 2px var(--like-btn-hover-bg, #000) inset;
+}
+
+.button.save-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--like-btn-hover-bg, #1a1a1a);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.42, 0, 0.58, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.button.save-button:hover::before,
+.button.save-button:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.button.save-button .button__text {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-accent, "Press Start 2P", monospace);
+  font-size: 14px;
+  color: var(--color-text, #1a1a1a);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  user-select: none;
+  transition: color 0.5s;
+  padding-top: 1px;
+}
+
+.button.save-button:hover .button__text,
+.button.save-button:focus-visible .button__text {
+  color: var(--like-btn-hover-text);
+}
+
+.button.save-button .floppy-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: #111;
+  flex-shrink: 0;
+  z-index: 2;
+  transition: color 1s;
+}
+
+.button.save-button:hover .floppy-icon,
+.button.save-button:focus-visible .floppy-icon {
+  color: #fff;
+}
+
+.disk-dialog {
+  width: 340px;
+  background: #fff;
+  border: 2px solid #111;
+  border-radius: 0;
+  padding: 24px 22px 20px 22px;
+  margin: 0 auto;
+  color: #111;
+  font-family: var(--font-accent, "Press Start 2P", monospace);
+  font-size: 15px;
+  text-transform: uppercase;
+  box-shadow: none;
+  outline: none;
+}
+
+.disk-dialog:not([open]) {
+  display: none;
+}
+
+.disk-dialog__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.disk-dialog__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disk-dialog__text {
+  margin: 0;
+  font-family: var(--font-accent, "Press Start 2P", monospace);
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #111;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  display: block;
+}
+
+.disk-dialog__form {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.disk-dialog__ok {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  margin-top: 8px;
+  border-radius: 0;
+  border: 2px solid #111;
+  background: #fff;
+  color: #111;
+  font-family: var(--font-accent, "Press Start 2P", monospace);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  gap: 0;
+}
+
+.disk-dialog__ok::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #111;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.42, 0, 0.58, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+.disk-dialog__ok:hover::before,
+.disk-dialog__ok:focus-visible::before {
+  transform: scaleX(1);
+}
+.disk-dialog__ok .button__text {
+  position: relative;
+  z-index: 2;
+  color: #111;
+  font-family: var(--font-accent, "Press Start 2P", monospace);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  transition: color 0.5s;
+  user-select: none;
+}
+.disk-dialog__ok:hover .button__text,
+.disk-dialog__ok:focus-visible .button__text {
+  color: #fff;
+}
+
+.go-to-save {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+.disk-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+.disk-dialog[open] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  z-index: 100;
 }

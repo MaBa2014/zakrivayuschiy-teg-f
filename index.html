@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./styles/globals.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/animations.css" />
+
+    <link rel="icon" sizes="16x16" href="svg/favicon.svg" />
   </head>
   <body class="page">
     <header class="header container">
@@ -263,7 +265,7 @@
               alt="Кемпер у костра ночью"
               class="card__image"
             />
-            <span class="card__watermark">&lt;/HTML&gt;</span>
+            <span class="card__watermark">&lt;css&gt;</span>
           </div>
           <div class="card__body">
             <p class="card__text">
@@ -374,7 +376,7 @@
               alt="Кемпер у костра ночью"
               class="card__image"
             />
-            <span class="card__watermark">&lt;/HTML&gt;</span>
+            <span class="card__watermark">&lt;desigions&gt;</span>
           </div>
           <div class="card__body">
             <p class="card__text">
@@ -487,7 +489,7 @@
               alt="Кемпер у костра ночью"
               class="card__image"
             />
-            <span class="card__watermark">&lt;/HTML&gt;</span>
+            <span class="card__watermark">care</span>
           </div>
           <div class="card__body">
             <p class="card__text">
@@ -606,7 +608,7 @@
               alt="Кемпер у костра ночью"
               class="card__image"
             />
-            <span class="card__watermark">&lt;/HTML&gt;</span>
+            <span class="card__watermark">&lt;support&gt;</span>
           </div>
           <div class="card__body">
             <p class="card__text">
@@ -722,7 +724,7 @@
               alt="Кемпер у костра ночью"
               class="card__image"
             />
-            <span class="card__watermark">&lt;/HTML&gt;</span>
+            <span class="card__watermark">&lt;lifes-style: none;&gt;</span>
           </div>
           <div class="card__body">
             <p class="card__text">
@@ -840,7 +842,7 @@
               alt="Кемпер у костра ночью"
               class="card__image"
             />
-            <span class="card__watermark">&lt;/HTML&gt;</span>
+            <span class="card__watermark">&lt;experience&gt;</span>
           </div>
           <div class="card__body">
             <p class="card__text">
@@ -950,25 +952,40 @@
           </div>
         </article>
       </section>
-      <section>
-        <button class="button save-button" type="button" onclick="window['modal'].showModal()" aria-controls="modal">
-          <svg class="floppy-icon" width="100%" height="100%" viewBox="0 0 21 21">
+      <section class="go-to-save">
+        <!-- Кнопка Save -->
+        <button
+          class="button save-button"
+          type="button"
+          onclick="window['diskette-dialog'].showModal();"
+          aria-controls="diskette-dialog"
+        >
+          <svg class="floppy-icon" width="20" height="20" aria-hidden="true">
             <use href="./svg/floppy.svg#floppy"></use>
           </svg>
-          <span class="button__text">Сохранить на память</span>
+          <span class="button__text">СОХРАНИТЬ НА ПАМЯТЬ</span>
         </button>
-        <dialog id="modal">
-          <div class="modal-container">
-            <svg class="floppy-icon modal-icon" width="100%" height="100%" viewBox="0 0 21 21">
+
+        <!-- Модалка -->
+        <dialog id="diskette-dialog" class="disk-dialog">
+          <div class="disk-dialog__row">
+            <svg
+              class="floppy-icon disk-dialog__icon"
+              width="32"
+              height="32"
+              aria-hidden="true"
+            >
               <use href="./svg/floppy.svg#floppy"></use>
             </svg>
-            <p class="modal-text">вставьте<br>дискету, чтобы<br>продолжить</p>
+            <p class="disk-dialog__text">
+              ВСТАВЬТЕ<br />ДИСКЕТУ, ЧТОБЫ<br />ПРОДОЛЖИТЬ
+            </p>
           </div>
-          <form class="modal-form" method="dialog">
-            <button class="button modal-button" type="submit">
+          <form method="dialog" class="disk-dialog__form">
+            <button class="button disk-dialog__ok" type="submit">
               <span class="button__text">OK</span>
             </button>
-          </form>  
+          </form>
         </dialog>
       </section>
     </main>
