@@ -1,5 +1,9 @@
 body.page {
-  background: var(--color-bg);
+  background-image: var(--bg-grid);
+  background-size: cover, cover, cover;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: repeat, repeat, no-repeat;
+  background-position: top left, top left, top left;
   color: var(--color-text);
   font-family: var(--font-main);
   margin: 0;
@@ -7,9 +11,8 @@ body.page {
 }
 
 .header {
-  width: 100vw;
-  padding-top: 40px;
-  padding-bottom: 26px;
+  padding-top: 100px;
+  padding-bottom: 105px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -18,11 +21,15 @@ body.page {
 .header__logo {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  border: 2px solid var(--color-card-border);
+  background: var(--color-card-bg);
+  min-width: 700px;
+  min-height: 368px;
+  justify-content: center;
 }
 .header__logo-html {
   font-family: var(--font-accent);
-  font-size: 54px;
+  font-size: 65px;
   font-weight: 400;
   letter-spacing: 0.03em;
   color: var(--color-text);
@@ -34,7 +41,7 @@ body.page {
 }
 .header__logo-caption {
   font-family: var(--font-accent);
-  font-size: 22px;
+  font-size: 23px;
   color: var(--color-text);
   text-transform: uppercase;
   text-align: center;
@@ -45,6 +52,7 @@ body.page {
 }
 
 .card {
+  width: 100vw;
   width: var(--card-width);
   border: 2px solid var(--color-card-border);
   border-radius: 0;
@@ -90,7 +98,13 @@ body.page {
   user-select: none;
   background: none;
   opacity: 0.5;
-  text-shadow: var(--watermark-shadow);
+  -webkit-text-stroke: 1px #fff;
+}
+
+@supports (text-stroke: 1px #fff) {
+  span {
+    text-shadow: 1px #fff;
+  }
 }
 
 .card__body {
@@ -196,13 +210,4 @@ body.page {
 .card__like-button:hover .button__text,
 .card__like-button:focus-visible .button__text {
   color: var(--like-btn-hover-text);
-}
-
-.big-heart {
-  opacity: 0;
-  stroke: var(--main-body-liked);
-  stroke-width: 2;
-  fill: none;
-  /* Чтобы не мешать кликам */
-  pointer-events: none;
 }
