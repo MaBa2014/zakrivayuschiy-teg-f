@@ -187,10 +187,7 @@ body.page {
   transition: outline 0.2s;
   outline: none;
 }
-.card__icon-button:focus-visible {
-  outline: 2px solid var(--like-btn-focus-border);
-  outline-offset: 2px;
-}
+
 .like-icon {
   width: var(--heart-size);
   height: var(--heart-size-vertical);
@@ -236,13 +233,16 @@ body.page {
   color: var(--color-text);
   transition: color 1s;
 }
-.card__like-button:hover::before,
-.card__like-button:focus-visible::before {
+.card__like-button:hover::before {
   transform: scaleX(1);
 }
-.card__like-button:hover .button__text,
-.card__like-button:focus-visible .button__text {
+.card__like-button:hover .button__text {
   color: var(--like-btn-hover-text);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accent-color, #000);
 }
 
 .button.save-button {
@@ -265,11 +265,7 @@ body.page {
   transition: box-shadow 0.3s, border-color 0.3s, color 0.5s;
   box-sizing: border-box;
 }
-.button.save-button:focus-visible {
-  outline: none;
-  border-color: var(--like-btn-focus-border, #1a1a1a);
-  box-shadow: 0 0 0 2px var(--like-btn-hover-bg, #000) inset;
-}
+
 .button.save-button::before {
   content: "";
   position: absolute;
@@ -281,8 +277,7 @@ body.page {
   z-index: 1;
   pointer-events: none;
 }
-.button.save-button:hover::before,
-.button.save-button:focus-visible::before {
+.button.save-button:hover::before {
   transform: scaleX(1);
 }
 .button.save-button .button__text {
@@ -297,8 +292,7 @@ body.page {
   transition: color 0.5s;
   padding-top: 1px;
 }
-.button.save-button:hover .button__text,
-.button.save-button:focus-visible .button__text {
+.button.save-button:hover .button__text {
   color: var(--like-btn-hover-text);
 }
 .button.save-button .floppy-icon {
@@ -310,8 +304,7 @@ body.page {
   z-index: 2;
   transition: color 1s;
 }
-.button.save-button:hover .floppy-icon,
-.button.save-button:focus-visible .floppy-icon {
+.button.save-button:hover .floppy-icon {
   color: #fff;
 }
 
@@ -393,8 +386,7 @@ body.page {
   z-index: 1;
   pointer-events: none;
 }
-.disk-dialog__ok:hover::before,
-.disk-dialog__ok:focus-visible::before {
+.disk-dialog__ok:hover::before {
   transform: scaleX(1);
 }
 .disk-dialog__ok .button__text {
@@ -408,8 +400,7 @@ body.page {
   transition: color 0.5s;
   user-select: none;
 }
-.disk-dialog__ok:hover .button__text,
-.disk-dialog__ok:focus-visible .button__text {
+.disk-dialog__ok:hover .button__text {
   color: #fff;
 }
 
