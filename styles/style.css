@@ -87,6 +87,35 @@ body.page {
   object-fit: cover;
   object-position: right;
 }
+
+.card__image_grayscale {
+  filter: grayscale(1);
+}
+
+.card__image_sepia {
+  filter: sepia(1);
+}
+
+.card__image_bright {
+  filter: brightness(1.4);
+}
+
+.card__image_blur {
+  filter: blur(2px);
+}
+
+.card__image_invert {
+  filter: invert(1);
+}
+
+.card__image_hue {
+  filter: hue-rotate(120deg);
+}
+
+.card__image_vintage {
+  filter: sepia(0.8) brightness(1.2);
+}
+
 .card__watermark {
   position: absolute;
   top: 25px;
