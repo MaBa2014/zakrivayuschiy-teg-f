@@ -22,6 +22,7 @@
   }
 }
 
+/* Основные состояния и плавные переходы для .like-icon */
 .like-icon .contour {
   transition: fill 0.3s linear;
   fill: var(--contour-color);
@@ -41,6 +42,7 @@
   opacity: 0;
 }
 
+/* Hover по кнопке: плавно перекрашиваем части иконки */
 .card__icon-button:hover .like-icon .core {
   transition: fill 0.1s linear;
   fill: var(--main-body-hover);
@@ -52,6 +54,7 @@
   fill: var(--main-body-hover);
 }
 
+/* Когда сердечко уже лайкнуто, при hover ничего не сбивается */
 .card__icon-button:hover .like-icon.is-liked .core,
 .card__icon-button:hover .like-icon.is-liked .main-body,
 .card__icon-button:hover .like-icon.is-liked .contour {
@@ -66,6 +69,7 @@
   fill: var(--main-body-liked);
 }
 
+/* Состояния активного нажатия */
 .card__icon-button:active .like-icon .contour {
   fill: var(--main-body-hover);
 }
@@ -78,6 +82,7 @@
   fill: var(--main-body-liked);
 }
 
+/* Анимация сердца и вспышек при лайке */
 .is-liked .heart {
   animation: heart 0.3s ease-in 0.1s 1;
   transform-origin: center;
