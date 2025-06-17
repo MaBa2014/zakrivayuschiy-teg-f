@@ -275,7 +275,6 @@ body.page {
   margin-left: 13px;
 }
 .disk-dialog__text {
-  margin: 0;
   font-family: var(--font-accent), Arial, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
