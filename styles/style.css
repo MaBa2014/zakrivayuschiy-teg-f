@@ -348,4 +348,8 @@ body:has(dialog[open]) {
   .disk-dialog {
     min-width: 51vh;
   }
+
+  .card__label {
+    padding: 4px 10px;
+  }
 }
