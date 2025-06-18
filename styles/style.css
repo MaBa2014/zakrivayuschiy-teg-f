@@ -149,6 +149,7 @@ body.page {
   font-size: 18px;
   color: var(--color-text);
   margin-bottom: 25px;
+  line-height: 1.15;
 }
 .card__text:last-of-type {
   margin-bottom: 24px;
@@ -246,8 +247,13 @@ body.page {
   box-shadow: 2px 2px 0 var(--accent-color, #000);
 }
 
+.go-to-save {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
 .disk-dialog {
-  padding: 30px;
   border: 2px solid #111;
   border-radius: 0;
   background: #fff;
@@ -255,10 +261,10 @@ body.page {
   font-family: var(--font-accent), Arial, sans-serif;
   font-size: 15px;
   text-transform: uppercase;
-  margin: 0 auto;
   box-shadow: none;
   outline: none;
-  max-width: 37vh;
+  width: clamp(340px, 5vw + 320px, 353px);
+  padding: 27px;
 }
 .disk-dialog:not([open]) {
   display: none;
@@ -272,7 +278,6 @@ body.page {
 .disk-dialog__icon {
   flex-shrink: 0;
   margin-top: 15px;
-  margin-left: 13px;
 }
 .disk-dialog__text {
   font-family: var(--font-accent), Arial, sans-serif;
@@ -284,16 +289,11 @@ body.page {
   margin: 5px 5px 0px 0px;
 }
 .disk-dialog__form {
-  margin: 0 12px;
   padding: 0;
   display: flex;
   justify-content: center;
 }
-.go-to-save {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 100px;
-}
+
 .disk-dialog::backdrop {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(2px);
@@ -314,7 +314,7 @@ body:has(dialog[open]) {
   width: 100%;
 }
 
-@media (width<= 375px) {
+@media (width <= 375px) {
   .header__logo {
     border-width: 2px;
     min-width: 100%;
@@ -342,10 +342,6 @@ body:has(dialog[open]) {
   .disk-dialog__icon {
     width: 39px;
     height: 39px;
-  }
-
-  .disk-dialog {
-    min-width: 51vh;
   }
 
   .card__label {
